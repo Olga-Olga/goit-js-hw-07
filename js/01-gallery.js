@@ -1,45 +1,44 @@
-// import { galleryItems } from './gallery-items.js';
-// // Change code below this line
-
-// console.log(galleryItems);
-// 
-import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
-// const instance = basicLightbox.create(`
-//     <div class="modal">
-//         <p>
-//             Your first lightbox with just a few lines of code.
-//             Yes, it's really that simple.
-//         </p>
-//     </div>
-// `)
-
-// console.log(galleryItems);
-
-// const ulElement = document.querySelector(".gallery")
-
-
-
-// ulElement.insertAdjacentHTML(afterbegin, instance)
-    
-    
-    
-    
+ import { galleryItems } from './gallery-items.js';
 const list = document.querySelector(".gallery");
+const elImgCards = galleryItems.map(({preview, original, description }) => `<li class="gallery__item">
+  <a class="gallery__link" href="${original}">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
+</li>`).join("");
+//console.log(galleryItems);
+const ulElement = document.querySelector(".gallery")
+ulElement.insertAdjacentHTML("afterbegin", elImgCards)
+    
+ulElement.addEventListener("click", handlerClickOnPicture)
 
-const newTechnologies = ["React", "TypeScript", "Node.js"];
-const markup = newTechnologies
-  .map((technology) => `<li class="list-item new">${technology}</li>`)
-  .join("");
-
-  list.insertAdjacentHTML("beforeend", markup);
-//list.insertAdjacentHTML("beforebegin", "<h2>Popular technologies</h2>");
-
-
+function handlerClickOnPicture(event) {
+  event.preventDefault()
+  console.dir(event.target.classList)
+ if (event.target.classList.value !== "gallery__image")
+{
+     return
+  }
 
 
-//instance.show()
+  const instance = basicLightbox.create(`
+    <img class="gallery__image" src="${event.target.dataset.source}"/>
+`)
+  instance.show();
+  
+  window.addEventListener("keydown", (event) => {
+  console.log(event.code);
+  if (event.code === "Escape") {
+    instance.close()
+  }
+})
+
+}
+
 
 
 
