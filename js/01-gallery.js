@@ -1,5 +1,4 @@
  import { galleryItems } from './gallery-items.js';
-const list = document.querySelector(".gallery");
 const elImgCards = galleryItems.map(({preview, original, description }) => `<li class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
@@ -10,7 +9,7 @@ const elImgCards = galleryItems.map(({preview, original, description }) => `<li 
     />
   </a>
 </li>`).join("");
-//console.log(galleryItems);
+
 const ulElement = document.querySelector(".gallery")
 ulElement.insertAdjacentHTML("afterbegin", elImgCards)
     
@@ -23,7 +22,6 @@ function handlerClickOnPicture(event) {
 {
      return
   }
-
 
   const instance = basicLightbox.create(`
     <img class="gallery__image" src="${event.target.dataset.source}"/>
