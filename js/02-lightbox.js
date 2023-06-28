@@ -14,6 +14,7 @@ const br = new SimpleLightbox(".gallery a", {
    scrollZoom: false
 })
 
+
 // br.on('next.simplelightbox', function () {
 //    console.log("Hello");
 //    br.close()
