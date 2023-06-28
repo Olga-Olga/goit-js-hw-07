@@ -8,16 +8,16 @@ const ulEl = document.querySelector(".gallery")
 ulEl.insertAdjacentHTML("afterbegin", galeryElements)
 
 const br = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
+   captionsData: "alt",
    captionDelay: 250,
    doubleTapZoom: 2,
-scrollZoom:	false
+   scrollZoom: false
 })
 
-br.on('next.simplelightbox', function () {
-   console.log("Hello");
-   br.close()
-});
+// br.on('next.simplelightbox', function () {
+//    console.log("Hello");
+//    br.close()
+// });
 
 // const lightbox = new SimpleLightbox('.gallery a');
 // let currentIndex = 0;
