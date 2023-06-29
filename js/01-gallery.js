@@ -35,7 +35,7 @@ function handlerClickOnPicture(event) {
   function callback(event) {
     if (event.code === "Escape") {
       instance.close()
-      console.log(123);
+      console.log("Have a good day, Ruslan!");
       window.removeEventListener("keydown", callback)
     }
   }
